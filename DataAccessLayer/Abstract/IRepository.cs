@@ -18,6 +18,8 @@ namespace DataAccessLayer.Abstract
 
 		T GetSingle (Expression<Func <T, bool>>method);
 
+		T GetById (Expression<Func <T, bool>>method);
+
 		//Write Repository
 		void Add(T model);
 
@@ -29,7 +31,7 @@ namespace DataAccessLayer.Abstract
 
 		void Update (T model);
 
-		int SaveChanges();
+		//int SaveChanges();
 		
 	}
 }

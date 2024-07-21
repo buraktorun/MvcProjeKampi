@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
@@ -35,8 +36,9 @@ namespace DataAccessLayer.Conrete.Repositories
 		// WRITE REPOSITORY
 		public void Add(T model) // INSERT
 		{
-			Table.Add(model);
-			SaveChanges();
+			var AddEntity = context.Entry(model);
+			AddEntity.State = EntityState.Added;
+			context.SaveChanges();
 		}
 
 		public void AddRange(List<T> model) // TOPLU EKLEME
@@ -46,7 +48,9 @@ namespace DataAccessLayer.Conrete.Repositories
 
 		public void Remove(T model) // DELETE
 		{
-			Table.Remove(model);
+			var removeEntity = context.Entry(model);
+			removeEntity.State = EntityState.Deleted;
+			context.SaveChanges();
 		}
 
 		public void RemoveRange(List<T> model) // TOPLU DELETE
@@ -56,10 +60,20 @@ namespace DataAccessLayer.Conrete.Repositories
 
 		public void Update(T model) // UPDATE GUNCELLEME
 		{
+			var updateEntity = context.Entry(model);
+			updateEntity.State = EntityState.Modified;
 			context.SaveChanges();
+
 		}
 
-		public int SaveChanges() // SAVE KAYIT ETME
-		 => context.SaveChanges();
+
+		public T GetById(Expression<Func<T, bool>> method)
+		{
+			return Table.SingleOrDefault(method);
+		}
+
+
+		//public int SaveChanges() // SAVE KAYIT ETME
+		// => context.SaveChanges();
 	}
 }

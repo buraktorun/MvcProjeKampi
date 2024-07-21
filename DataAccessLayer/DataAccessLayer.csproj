@@ -53,16 +53,26 @@
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
-    <Compile Include="Abstract\IContact.cs" />
-    <Compile Include="Abstract\IContent.cs" />
-    <Compile Include="Abstract\IHeading.cs" />
+    <Compile Include="Abstract\IContactDal.cs" />
+    <Compile Include="Abstract\IContentDal.cs" />
+    <Compile Include="Abstract\IHeadingDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
-    <Compile Include="Abstract\IWriter.cs" />
+    <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfAboutDal.cs" />
+    <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="EntityFramework\EfContactDal.cs" />
+    <Compile Include="EntityFramework\EfContentDal.cs" />
+    <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202407171239386_mig_1.cs" />
     <Compile Include="Migrations\202407171239386_mig_1.Designer.cs">
       <DependentUpon>202407171239386_mig_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202407202111455_mig_2.cs" />
+    <Compile Include="Migrations\202407202111455_mig_2.Designer.cs">
+      <DependentUpon>202407202111455_mig_2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202407171239386_mig_1.resx">
       <DependentUpon>202407171239386_mig_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202407202111455_mig_2.resx">
+      <DependentUpon>202407202111455_mig_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
