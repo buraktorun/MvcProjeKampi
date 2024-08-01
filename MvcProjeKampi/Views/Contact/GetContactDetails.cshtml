@@ -1,0 +1,47 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewBag.Title = "GetContactDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content-header">
+        <div class="container-fluid">
+        </div>
+    </section>
+    <section class="content">
+        <div class="row">
+            @Html.Partial("~/Views/Contact/Partials/_ContactPartial.cshtml")
+            <div class="col-md-9">
+                <div class="card card-primary card-outline">
+                        <div class="card-body p-0">
+                            <div class="mailbox-read-info">
+                                <h4>Konu: @Html.DisplayFor(x => x.Subject)</h4>
+                            </div>
+                                <div class="mailbox-read-info">
+                                    <h6>
+                                        Kimden: @Html.DisplayFor(x => x.UserMail)
+                                        <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
+                                    </h6>
+                                </div>
+                            <div class="mailbox-read-message">
+                                <p>@Html.DisplayFor(x=>x.Message)</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="float-right">
+                                <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Geri</button>
+                                <button type="button" class="btn btn-default"><i class="fas fa-share"></i> İleri</button>
+                            </div>
+                            <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Sil</button>
+                            <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Yazdır</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

@@ -72,8 +72,5 @@ namespace DataAccessLayer.Conrete.Repositories
 			return Table.SingleOrDefault(method);
 		}
 
-
-		//public int SaveChanges() // SAVE KAYIT ETME
-		// => context.SaveChanges();
 	}
 }

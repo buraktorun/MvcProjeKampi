@@ -31,7 +31,7 @@ namespace DataAccessLayer.Abstract
 
 		void Update (T model);
 
-		//int SaveChanges();
+		
 		
 	}
 }
